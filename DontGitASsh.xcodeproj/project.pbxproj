@@ -1,0 +1,657 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B001 /* DontGitASshApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F001 /* DontGitASshApp.swift */; };
+		B002 /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F002 /* Connection.swift */; };
+		B003 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F003 /* Repository.swift */; };
+		B004 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F004 /* Preferences.swift */; };
+		B005 /* SSHConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005 /* SSHConnection.swift */; };
+		B006 /* RemoteExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006 /* RemoteExecutor.swift */; };
+		B007 /* GitRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F007 /* GitRepository.swift */; };
+		B008 /* GitCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008 /* GitCommit.swift */; };
+		B009 /* GitBranch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009 /* GitBranch.swift */; };
+		B010 /* GitDiff.swift in Sources */ = {isa = PBXBuildFile; fileRef = F010 /* GitDiff.swift */; };
+		B011 /* GitHunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = F011 /* GitHunk.swift */; };
+		B012 /* GitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F012 /* GitStatus.swift */; };
+		B013 /* DiffParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F013 /* DiffParser.swift */; };
+		B014 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F014 /* AppState.swift */; };
+		B015 /* ConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F015 /* ConnectionViewModel.swift */; };
+		B016 /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016 /* RepositoryViewModel.swift */; };
+		B017 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F017 /* MainView.swift */; };
+		B018 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F018 /* PreferencesView.swift */; };
+		B019 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F019 /* SidebarView.swift */; };
+		B020 /* ConnectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F020 /* ConnectionListView.swift */; };
+		B021 /* RepositoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F021 /* RepositoryView.swift */; };
+		B022 /* CommitGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F022 /* CommitGraphView.swift */; };
+		B023 /* CommitDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F023 /* CommitDetailView.swift */; };
+		B024 /* StagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F024 /* StagingView.swift */; };
+		B025 /* DiffView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F025 /* DiffView.swift */; };
+		B026 /* HunkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F026 /* HunkView.swift */; };
+		B027 /* BranchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F027 /* BranchView.swift */; };
+		B028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F028 /* Assets.xcassets */; };
+		B030 /* DiffParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F030 /* DiffParserTests.swift */; };
+		B031 /* GitBranchParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F031 /* GitBranchParserTests.swift */; };
+		B032 /* GitLogParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F032 /* GitLogParserTests.swift */; };
+		B033 /* GitStatusParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F033 /* GitStatusParserTests.swift */; };
+		B034 /* HunkSelectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F034 /* HunkSelectionTests.swift */; };
+		B035 /* SSHConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F035 /* SSHConfigParser.swift */; };
+		B036 /* SSHConfigImportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F036 /* SSHConfigImportView.swift */; };
+		B037 /* SSHConfigParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F037 /* SSHConfigParserTests.swift */; };
+		B038 /* RemoteFilePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F038 /* RemoteFilePicker.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		PROXY001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = PROJ001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = TARG001;
+			remoteInfo = DontGitASsh;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F001 /* DontGitASshApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontGitASshApp.swift; sourceTree = "<group>"; };
+		F002 /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		F003 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		F004 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		F005 /* SSHConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHConnection.swift; sourceTree = "<group>"; };
+		F006 /* RemoteExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteExecutor.swift; sourceTree = "<group>"; };
+		F007 /* GitRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitRepository.swift; sourceTree = "<group>"; };
+		F008 /* GitCommit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitCommit.swift; sourceTree = "<group>"; };
+		F009 /* GitBranch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBranch.swift; sourceTree = "<group>"; };
+		F010 /* GitDiff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitDiff.swift; sourceTree = "<group>"; };
+		F011 /* GitHunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHunk.swift; sourceTree = "<group>"; };
+		F012 /* GitStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitStatus.swift; sourceTree = "<group>"; };
+		F013 /* DiffParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffParser.swift; sourceTree = "<group>"; };
+		F014 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		F015 /* ConnectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewModel.swift; sourceTree = "<group>"; };
+		F016 /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
+		F017 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F018 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		F019 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		F020 /* ConnectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionListView.swift; sourceTree = "<group>"; };
+		F021 /* RepositoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryView.swift; sourceTree = "<group>"; };
+		F022 /* CommitGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitGraphView.swift; sourceTree = "<group>"; };
+		F023 /* CommitDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitDetailView.swift; sourceTree = "<group>"; };
+		F024 /* StagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StagingView.swift; sourceTree = "<group>"; };
+		F025 /* DiffView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffView.swift; sourceTree = "<group>"; };
+		F026 /* HunkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HunkView.swift; sourceTree = "<group>"; };
+		F027 /* BranchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchView.swift; sourceTree = "<group>"; };
+		F028 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F029 /* DontGitASsh.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DontGitASsh.entitlements; sourceTree = "<group>"; };
+		F030 /* DiffParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffParserTests.swift; sourceTree = "<group>"; };
+		F031 /* GitBranchParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitBranchParserTests.swift; sourceTree = "<group>"; };
+		F032 /* GitLogParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitLogParserTests.swift; sourceTree = "<group>"; };
+		F033 /* GitStatusParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitStatusParserTests.swift; sourceTree = "<group>"; };
+		F034 /* HunkSelectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HunkSelectionTests.swift; sourceTree = "<group>"; };
+		F035 /* SSHConfigParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHConfigParser.swift; sourceTree = "<group>"; };
+		F036 /* SSHConfigImportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHConfigImportView.swift; sourceTree = "<group>"; };
+		F037 /* SSHConfigParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSHConfigParserTests.swift; sourceTree = "<group>"; };
+		F038 /* RemoteFilePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFilePicker.swift; sourceTree = "<group>"; };
+		PROD001 /* DontGitASsh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DontGitASsh.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		PROD002 /* DontGitASshTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DontGitASshTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FWKS001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FWKS002 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		GRP001 = {
+			isa = PBXGroup;
+			children = (
+				GRP002 /* DontGitASsh */,
+				GRP012 /* DontGitASshTests */,
+				GRP013 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		GRP002 /* DontGitASsh */ = {
+			isa = PBXGroup;
+			children = (
+				F001 /* DontGitASshApp.swift */,
+				GRP003 /* Models */,
+				GRP004 /* SSH */,
+				GRP005 /* Git */,
+				GRP006 /* ViewModels */,
+				GRP007 /* Views */,
+				F028 /* Assets.xcassets */,
+				F029 /* DontGitASsh.entitlements */,
+			);
+			path = DontGitASsh;
+			sourceTree = "<group>";
+		};
+		GRP003 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F002 /* Connection.swift */,
+				F003 /* Repository.swift */,
+				F004 /* Preferences.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		GRP004 /* SSH */ = {
+			isa = PBXGroup;
+			children = (
+				F005 /* SSHConnection.swift */,
+				F006 /* RemoteExecutor.swift */,
+				F035 /* SSHConfigParser.swift */,
+			);
+			path = SSH;
+			sourceTree = "<group>";
+		};
+		GRP005 /* Git */ = {
+			isa = PBXGroup;
+			children = (
+				F007 /* GitRepository.swift */,
+				F008 /* GitCommit.swift */,
+				F009 /* GitBranch.swift */,
+				F010 /* GitDiff.swift */,
+				F011 /* GitHunk.swift */,
+				F012 /* GitStatus.swift */,
+				F013 /* DiffParser.swift */,
+			);
+			path = Git;
+			sourceTree = "<group>";
+		};
+		GRP006 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F014 /* AppState.swift */,
+				F015 /* ConnectionViewModel.swift */,
+				F016 /* RepositoryViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		GRP007 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F017 /* MainView.swift */,
+				F018 /* PreferencesView.swift */,
+				GRP008 /* Sidebar */,
+				GRP009 /* Repository */,
+				GRP010 /* Staging */,
+				GRP011 /* Branch */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		GRP008 /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				F019 /* SidebarView.swift */,
+				F020 /* ConnectionListView.swift */,
+				F036 /* SSHConfigImportView.swift */,
+			);
+			path = Sidebar;
+			sourceTree = "<group>";
+		};
+		GRP009 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				F021 /* RepositoryView.swift */,
+				F022 /* CommitGraphView.swift */,
+				F023 /* CommitDetailView.swift */,
+				F038 /* RemoteFilePicker.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		GRP010 /* Staging */ = {
+			isa = PBXGroup;
+			children = (
+				F024 /* StagingView.swift */,
+				F025 /* DiffView.swift */,
+				F026 /* HunkView.swift */,
+			);
+			path = Staging;
+			sourceTree = "<group>";
+		};
+		GRP011 /* Branch */ = {
+			isa = PBXGroup;
+			children = (
+				F027 /* BranchView.swift */,
+			);
+			path = Branch;
+			sourceTree = "<group>";
+		};
+		GRP012 /* DontGitASshTests */ = {
+			isa = PBXGroup;
+			children = (
+				F030 /* DiffParserTests.swift */,
+				F031 /* GitBranchParserTests.swift */,
+				F032 /* GitLogParserTests.swift */,
+				F033 /* GitStatusParserTests.swift */,
+				F034 /* HunkSelectionTests.swift */,
+				F037 /* SSHConfigParserTests.swift */,
+			);
+			path = DontGitASshTests;
+			sourceTree = "<group>";
+		};
+		GRP013 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				PROD001 /* DontGitASsh.app */,
+				PROD002 /* DontGitASshTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		TARG001 /* DontGitASsh */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFGL001 /* Build configuration list for PBXNativeTarget "DontGitASsh" */;
+			buildPhases = (
+				SRCS001 /* Sources */,
+				FWKS001 /* Frameworks */,
+				RSRC001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DontGitASsh;
+			productName = DontGitASsh;
+			productReference = PROD001 /* DontGitASsh.app */;
+			productType = "com.apple.product-type.application";
+		};
+		TARG002 /* DontGitASshTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFGL002 /* Build configuration list for PBXNativeTarget "DontGitASshTests" */;
+			buildPhases = (
+				SRCS002 /* Sources */,
+				FWKS002 /* Frameworks */,
+				RSRC002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DEP001 /* PBXTargetDependency */,
+			);
+			name = DontGitASshTests;
+			productName = DontGitASshTests;
+			productReference = PROD002 /* DontGitASshTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		PROJ001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					TARG001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					TARG002 = {
+						CreatedOnToolsVersion = 15.0;
+						TestTargetID = TARG001;
+					};
+				};
+			};
+			buildConfigurationList = CFGL003 /* Build configuration list for PBXProject "DontGitASsh" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = GRP001;
+			productRefGroup = GRP013 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				TARG001 /* DontGitASsh */,
+				TARG002 /* DontGitASshTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		RSRC001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B028 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		RSRC002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		SRCS001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B001 /* DontGitASshApp.swift in Sources */,
+				B002 /* Connection.swift in Sources */,
+				B003 /* Repository.swift in Sources */,
+				B004 /* Preferences.swift in Sources */,
+				B005 /* SSHConnection.swift in Sources */,
+				B006 /* RemoteExecutor.swift in Sources */,
+				B007 /* GitRepository.swift in Sources */,
+				B008 /* GitCommit.swift in Sources */,
+				B009 /* GitBranch.swift in Sources */,
+				B010 /* GitDiff.swift in Sources */,
+				B011 /* GitHunk.swift in Sources */,
+				B012 /* GitStatus.swift in Sources */,
+				B013 /* DiffParser.swift in Sources */,
+				B014 /* AppState.swift in Sources */,
+				B015 /* ConnectionViewModel.swift in Sources */,
+				B016 /* RepositoryViewModel.swift in Sources */,
+				B017 /* MainView.swift in Sources */,
+				B018 /* PreferencesView.swift in Sources */,
+				B019 /* SidebarView.swift in Sources */,
+				B020 /* ConnectionListView.swift in Sources */,
+				B021 /* RepositoryView.swift in Sources */,
+				B022 /* CommitGraphView.swift in Sources */,
+				B023 /* CommitDetailView.swift in Sources */,
+				B024 /* StagingView.swift in Sources */,
+				B025 /* DiffView.swift in Sources */,
+				B026 /* HunkView.swift in Sources */,
+				B027 /* BranchView.swift in Sources */,
+				B035 /* SSHConfigParser.swift in Sources */,
+				B036 /* SSHConfigImportView.swift in Sources */,
+				B038 /* RemoteFilePicker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		SRCS002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B030 /* DiffParserTests.swift in Sources */,
+				B031 /* GitBranchParserTests.swift in Sources */,
+				B032 /* GitLogParserTests.swift in Sources */,
+				B033 /* GitStatusParserTests.swift in Sources */,
+				B034 /* HunkSelectionTests.swift in Sources */,
+				B037 /* SSHConfigParserTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DEP001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = TARG001 /* DontGitASsh */;
+			targetProxy = PROXY001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CFG001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CFG002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		CFG003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DontGitASsh/DontGitASsh.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.iamatomic.dontgitassh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CFG004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = DontGitASsh/DontGitASsh.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.iamatomic.dontgitassh;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		CFG005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dontgitassh.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DontGitASsh.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DontGitASsh";
+			};
+			name = Debug;
+		};
+		CFG006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dontgitassh.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DontGitASsh.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DontGitASsh";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFGL001 /* Build configuration list for PBXNativeTarget "DontGitASsh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFG003 /* Debug */,
+				CFG004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFGL002 /* Build configuration list for PBXNativeTarget "DontGitASshTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFG005 /* Debug */,
+				CFG006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFGL003 /* Build configuration list for PBXProject "DontGitASsh" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFG001 /* Debug */,
+				CFG002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = PROJ001 /* Project object */;
+}
