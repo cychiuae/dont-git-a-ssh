@@ -2,6 +2,10 @@
 
 A native macOS Git GUI for managing Git repositories on remote machines via SSH.
 
+<p >
+  <img alt="logo" src="assets/banner.png" height="150" />
+</p>
+
 ## Overview
 
 Don't Git a SSH lets you interact with Git repositories on remote servers as if they were local. It connects via your system's `ssh` command, leveraging your existing SSH configs and ssh-agent for authentication.
