@@ -1,5 +1,20 @@
 import SwiftUI
 
+// MARK: - Line Geometry Tracking
+
+struct LineFramePreference: Equatable {
+    let hunkId: UUID
+    let index: Int
+    let frame: CGRect
+}
+
+struct LineFramePreferenceKey: PreferenceKey {
+    static var defaultValue: [LineFramePreference] = []
+    static func reduce(value: inout [LineFramePreference], nextValue: () -> [LineFramePreference]) {
+        value.append(contentsOf: nextValue())
+    }
+}
+
 /// View for a single hunk with line-level selection
 struct HunkView: View {
     let hunk: GitHunk
@@ -58,6 +73,7 @@ struct HunkView: View {
 }
 
 /// Unified diff view (single column with +/- lines)
+/// Line geometry is reported upward via LineFramePreferenceKey for cross-hunk drag support.
 struct UnifiedHunkContent: View {
     let hunk: GitHunk
     let selection: HunkSelection?
@@ -74,6 +90,18 @@ struct UnifiedHunkContent: View {
                     hunk: hunk,
                     isSelected: selection?.selectedLines.contains(index) ?? false,
                     showLineNumbers: preferences.showLineNumbers
+                )
+                .background(
+                    GeometryReader { geo in
+                        Color.clear.preference(
+                            key: LineFramePreferenceKey.self,
+                            value: [LineFramePreference(
+                                hunkId: hunk.id,
+                                index: index,
+                                frame: geo.frame(in: .named("diffLines"))
+                            )]
+                        )
+                    }
                 )
             }
         }
@@ -164,8 +192,27 @@ struct SideBySideHunkContent: View {
                         isLeft: false
                     )
                 }
+                .background(
+                    GeometryReader { geo in
+                        Color.clear.preference(
+                            key: LineFramePreferenceKey.self,
+                            value: sideBySidePreferences(pair: pair, frame: geo.frame(in: .named("diffLines")))
+                        )
+                    }
+                )
             }
         }
+    }
+
+    private func sideBySidePreferences(pair: (left: DiffLine?, right: DiffLine?, leftIndex: Int?, rightIndex: Int?), frame: CGRect) -> [LineFramePreference] {
+        var prefs: [LineFramePreference] = []
+        if let idx = pair.leftIndex {
+            prefs.append(LineFramePreference(hunkId: hunk.id, index: idx, frame: frame))
+        }
+        if let idx = pair.rightIndex, idx != pair.leftIndex {
+            prefs.append(LineFramePreference(hunkId: hunk.id, index: idx, frame: frame))
+        }
+        return prefs
     }
 }
 
@@ -309,11 +356,6 @@ struct HunkLineRow: View {
         .padding(.vertical, 1)
         .background(lineBackground)
         .contentShape(Rectangle())
-        .onTapGesture {
-            if isChangeable {
-                viewModel.toggleLine(index, in: hunk)
-            }
-        }
     }
 
     var lineBackground: Color {

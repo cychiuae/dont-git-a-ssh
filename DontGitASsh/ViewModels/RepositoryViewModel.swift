@@ -24,6 +24,11 @@ class RepositoryViewModel: ObservableObject {
     // Hunk selection state
     @Published var hunkSelections: [UUID: HunkSelection] = [:]
 
+    // Drag selection state
+    var dragStartLineKey: (hunkId: UUID, lineIndex: Int)?
+    var dragSelectMode: Bool? // true = selecting, false = deselecting
+    private var preDragSelections: [UUID: HunkSelection]?
+
     // Commit message
     @Published var commitMessage: String = ""
 
@@ -444,6 +449,53 @@ class RepositoryViewModel: ObservableObject {
         for key in hunkSelections.keys {
             hunkSelections[key]?.deselectAll()
         }
+    }
+
+    // MARK: - Drag Selection
+
+    func beginDragSelection(at lineIndex: Int, in hunk: GitHunk) {
+        guard lineIndex >= 0 && lineIndex < hunk.lines.count,
+              hunk.lines[lineIndex].type != .context else { return }
+
+        // Snapshot current selections so we can revert as drag range changes
+        preDragSelections = hunkSelections
+
+        let wasSelected = hunkSelections[hunk.id]?.selectedLines.contains(lineIndex) ?? false
+        dragStartLineKey = (hunkId: hunk.id, lineIndex: lineIndex)
+        dragSelectMode = !wasSelected
+    }
+
+    /// Apply drag selection to the given lines (sorted by visual position).
+    /// Restores from pre-drag snapshot then applies mode to the range.
+    func updateDragSelection(linesInRange: [(hunkId: UUID, lineIndex: Int)], allHunks: [GitHunk]) {
+        guard let preDrag = preDragSelections, let mode = dragSelectMode else { return }
+
+        // Restore from snapshot
+        hunkSelections = preDrag
+
+        // Apply drag mode to all lines in range
+        for (hunkId, lineIndex) in linesInRange {
+            guard let hunk = allHunks.first(where: { $0.id == hunkId }),
+                  lineIndex >= 0 && lineIndex < hunk.lines.count,
+                  hunk.lines[lineIndex].type != .context else { continue }
+
+            if var selection = hunkSelections[hunkId] {
+                if mode {
+                    selection.selectedLines.insert(lineIndex)
+                } else {
+                    selection.selectedLines.remove(lineIndex)
+                }
+                let changeableLines = Set(hunk.lines.indices.filter { hunk.lines[$0].type != .context })
+                selection.isFullySelected = selection.selectedLines == changeableLines
+                hunkSelections[hunkId] = selection
+            }
+        }
+    }
+
+    func endDragSelection() {
+        dragStartLineKey = nil
+        dragSelectMode = nil
+        preDragSelections = nil
     }
 
     // MARK: - Commits

@@ -103,6 +103,8 @@ struct FileDiffSection: View {
     let file: GitFileDiff
     @EnvironmentObject var viewModel: RepositoryViewModel
     @ObservedObject var preferences = Preferences.shared
+    @State private var lineFrames: [String: (hunkId: UUID, lineIndex: Int, frame: CGRect)] = [:]
+    @State private var lastDragLineKey: String?
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -134,15 +136,88 @@ struct FileDiffSection: View {
                     .foregroundColor(.secondary)
                     .padding()
             } else {
-                ForEach(file.hunks) { hunk in
-                    HunkView(
-                        hunk: hunk,
-                        selection: viewModel.hunkSelections[hunk.id],
-                        viewMode: preferences.diffViewMode
-                    )
+                VStack(alignment: .leading, spacing: 0) {
+                    ForEach(file.hunks) { hunk in
+                        HunkView(
+                            hunk: hunk,
+                            selection: viewModel.hunkSelections[hunk.id],
+                            viewMode: preferences.diffViewMode
+                        )
+                    }
                 }
+                .coordinateSpace(name: "diffLines")
+                .onPreferenceChange(LineFramePreferenceKey.self) { prefs in
+                    var frames: [String: (hunkId: UUID, lineIndex: Int, frame: CGRect)] = [:]
+                    for pref in prefs {
+                        let key = "\(pref.hunkId)_\(pref.index)"
+                        frames[key] = (hunkId: pref.hunkId, lineIndex: pref.index, frame: pref.frame)
+                    }
+                    lineFrames = frames
+                }
+                .gesture(
+                    DragGesture(minimumDistance: 0, coordinateSpace: .named("diffLines"))
+                        .onChanged { value in
+                            guard let hit = lineAt(y: value.location.y) else { return }
+                            let hitKey = "\(hit.hunkId)_\(hit.lineIndex)"
+
+                            if viewModel.dragStartLineKey == nil {
+                                // Begin drag
+                                guard let hunk = file.hunks.first(where: { $0.id == hit.hunkId }) else { return }
+                                lastDragLineKey = hitKey
+                                viewModel.beginDragSelection(at: hit.lineIndex, in: hunk)
+                                // Apply to initial line
+                                let range = linesInYRange(
+                                    from: hit.frame.midY,
+                                    to: hit.frame.midY
+                                )
+                                viewModel.updateDragSelection(linesInRange: range, allHunks: file.hunks)
+                            } else if hitKey != lastDragLineKey {
+                                // Continue drag
+                                lastDragLineKey = hitKey
+                                guard let startKey = viewModel.dragStartLineKey,
+                                      let startEntry = lineFrames["\(startKey.hunkId)_\(startKey.lineIndex)"] else { return }
+                                let range = linesInYRange(
+                                    from: startEntry.frame.midY,
+                                    to: hit.frame.midY
+                                )
+                                viewModel.updateDragSelection(linesInRange: range, allHunks: file.hunks)
+                            }
+                        }
+                        .onEnded { _ in
+                            lastDragLineKey = nil
+                            viewModel.endDragSelection()
+                        }
+                )
             }
         }
+    }
+
+    /// Find which line the Y coordinate falls in
+    private func lineAt(y: CGFloat) -> (hunkId: UUID, lineIndex: Int, frame: CGRect)? {
+        for (_, entry) in lineFrames {
+            if y >= entry.frame.minY && y <= entry.frame.maxY {
+                return entry
+            }
+        }
+        // Clamp to nearest line
+        let sorted = lineFrames.values.sorted { $0.frame.midY < $1.frame.midY }
+        if let first = sorted.first, y < first.frame.minY {
+            return first
+        }
+        if let last = sorted.last, y > last.frame.maxY {
+            return last
+        }
+        return nil
+    }
+
+    /// Get all lines between two Y positions, sorted by visual order
+    private func linesInYRange(from y1: CGFloat, to y2: CGFloat) -> [(hunkId: UUID, lineIndex: Int)] {
+        let minY = min(y1, y2)
+        let maxY = max(y1, y2)
+        return lineFrames.values
+            .filter { $0.frame.midY >= minY - 1 && $0.frame.midY <= maxY + 1 }
+            .sorted { $0.frame.midY < $1.frame.midY }
+            .map { (hunkId: $0.hunkId, lineIndex: $0.lineIndex) }
     }
 
     @ViewBuilder
